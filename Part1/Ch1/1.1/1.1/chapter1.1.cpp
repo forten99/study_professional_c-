@@ -285,6 +285,33 @@ int addNumbers(int number1, int number2)
 	}
 #pragma endregion
 
+#pragma region 1.1.32 exception
+	double divideNumbers(double numerator, double denominator)
+	{
+		if (denominator == 0) {
+			throw invalid_argument("Denominator cannot be 0.");		// <stdexcept>에 정의된 std::invalid_argument
+		}
+		return numerator / denominator;
+	}
+#pragma endregion
+
+#pragma region 1.1.35 auto
+	const string& foo() 
+	{ 
+		const string message{ "Test" };
+		return message; 
+	}
+#pragma endregion 
+
+#pragma region 1.1.33 type alias
+	//void processVector(const vector<basic_string<char>>& vec)
+	void processVector(const vector<string>& vec)
+	{
+		for (string str : vec)
+			cout << str << endl;
+	}
+#pragma endregion
+
 int main() {
 	//std::cout << "Hello, World!" << std::endl;
 
@@ -892,90 +919,149 @@ int main() {
 	//	//int* ptr{ (int*)8 };
 	//	//refcall(*ptr);				// 예측 불가
 
-	//	int unSplit[]{ 1,2,3,4,5,6,7,8,9,10 };
-	//	int* oddNums{ nullptr };
-	//	int* evenNums{ nullptr };
-	//	size_t numOdds{ 0 }, numEvens{ 0 };
-	//	
-	//	separateOddsAndEvens_ptr(unSplit, std::size(unSplit),
-	//		&oddNums, &numOdds, &evenNums, &numEvens);
+//	int unSplit[]{ 1,2,3,4,5,6,7,8,9,10 };
+//	int* oddNums{ nullptr };
+//	int* evenNums{ nullptr };
+//	size_t numOdds{ 0 }, numEvens{ 0 };
+//	
+//	separateOddsAndEvens_ptr(unSplit, std::size(unSplit),
+//		&oddNums, &numOdds, &evenNums, &numEvens);
 
-	//	// 생성된 배열을 사용하는 코드
-	//	for (int i = 0; i < numOdds; i++)
-	//	{
-	//		cout << oddNums[i] << " ";
-	//	}
-	//	cout << endl;
-	//	for (int i = 0; i < numEvens; i++)
-	//	{
-	//		cout << evenNums[i] << " ";
-	//	}
-	//	cout << endl;
+//	// 생성된 배열을 사용하는 코드
+//	for (int i = 0; i < numOdds; i++)
+//	{
+//		cout << oddNums[i] << " ";
+//	}
+//	cout << endl;
+//	for (int i = 0; i < numEvens; i++)
+//	{
+//		cout << evenNums[i] << " ";
+//	}
+//	cout << endl;
 
-	//	separateOddsAndEvens_ref(unSplit, std::size(unSplit),
-	//		oddNums, numOdds, evenNums, numEvens);
+//	separateOddsAndEvens_ref(unSplit, std::size(unSplit),
+//		oddNums, numOdds, evenNums, numEvens);
 
-	//	// 생성된 배열을 사용하는 코드
-	//	for (int i = 0; i < numOdds; i++)
-	//	{
-	//		cout << oddNums[i] << " ";
-	//	}
-	//	cout << endl;
-	//	for (int i = 0; i < numEvens; i++)
-	//	{
-	//		cout << evenNums[i] << " ";
-	//	}
-	//	cout << endl;
-	//	delete[] oddNums; oddNums = nullptr;
-	//	delete[] evenNums; evenNums = nullptr;
+//	// 생성된 배열을 사용하는 코드
+//	for (int i = 0; i < numOdds; i++)
+//	{
+//		cout << oddNums[i] << " ";
+//	}
+//	cout << endl;
+//	for (int i = 0; i < numEvens; i++)
+//	{
+//		cout << evenNums[i] << " ";
+//	}
+//	cout << endl;
+//	delete[] oddNums; oddNums = nullptr;
+//	delete[] evenNums; evenNums = nullptr;
 
-	//	vector<int> v_unSplit{ 1,2,3,4,5,6,7,8,9,10 };
-	//	vector<int> v_oddNums;
-	//	vector<int> v_evenNums;
+//	vector<int> v_unSplit{ 1,2,3,4,5,6,7,8,9,10 };
+//	vector<int> v_oddNums;
+//	vector<int> v_evenNums;
 
-	//	separateOddsAndEvens_vector(v_unSplit, v_oddNums, v_evenNums);
-	//	for (int i : v_oddNums)
-	//	{
-	//		cout << i;
-	//	}
-	//	cout << endl;
-	//	for (int i : v_evenNums)
-	//	{
-	//		cout << i;
-	//	}
-	//	cout << endl;
+//	separateOddsAndEvens_vector(v_unSplit, v_oddNums, v_evenNums);
+//	for (int i : v_oddNums)
+//	{
+//		cout << i;
+//	}
+//	cout << endl;
+//	for (int i : v_evenNums)
+//	{
+//		cout << i;
+//	}
+//	cout << endl;
 
-	//	auto oddsAndEvens{ separateOddsAndEvens(v_unSplit) };
-	//	for(int i:oddsAndEvens.odds)
-	//	{
-	//		cout << i;
-	//	}
-	//	cout << endl;
-	//	for (int i : oddsAndEvens.evens)
-	//	{
-	//		cout << i;
-	//	}
-	//	cout << endl;
-	//	auto [odds, evens] { separateOddsAndEvens(v_unSplit) };
-	//	for (int i : odds)
-	//	{
-	//		cout << i;
-	//	}
-	//	cout << endl;
-	//	for (int i : evens)
-	//	{
-	//		cout << i;
-	//	}
-	//	cout << endl;
-	//}
+//	auto oddsAndEvens{ separateOddsAndEvens(v_unSplit) };
+//	for(int i:oddsAndEvens.odds)
+//	{
+//		cout << i;
+//	}
+//	cout << endl;
+//	for (int i : oddsAndEvens.evens)
+//	{
+//		cout << i;
+//	}
+//	cout << endl;
+//	auto [odds, evens] { separateOddsAndEvens(v_unSplit) };
+//	for (int i : odds)
+//	{
+//		cout << i;
+//	}
+//	cout << endl;
+//	for (int i : evens)
+//	{
+//		cout << i;
+//	}
+//	cout << endl;
+//}
 #pragma endregion
 
 #pragma region 1.1.31 const_cast()
-	{
-		std::string str{ "C++" };
-		const std::string& constStr{ as_const(str) };
-	}
+	//{
+	//	std::string str{ "C++" };
+	//	const std::string& constStr{ as_const(str) };
+	//}
 #pragma endregion
 
+#pragma region 1.1.32 exception
+	//{
+	//	try {
+	//		cout << divideNumbers(2.5, 0.5) << endl;
+	//		cout << divideNumbers(2.3, 0) << endl;
+	//		cout << divideNumbers(4.5, 2.5) << endl;
+	//	}
+	//	catch (const invalid_argument& exception) {
+	//		cout << format("Exception caught: {} ", exception.what()) << endl;
+	//	}
+	//}
+#pragma endregion
+
+#pragma region 1.1.33 type alias
+	//{
+	//	//vector<basic_string<char>> myVector;		// using string = basic_string<char>
+	//	vector<string> myVector;
+	//	myVector.push_back("abc");
+	//	myVector.push_back("def");
+	//	processVector(myVector);
+	//}
+#pragma endregion
+
+#pragma region 1.1.35 auto
+	{
+		//auto x{ 123 };	// x는 int 타입으로 결정
+
+		//auto f1{ foo() };	// 레퍼런스와 const 제거, 값 복제
+		
+		// auto&
+		const auto& f2{ foo() };
+
+		string str{ "C++" };
+		auto result{ as_const(str) };	// 레퍼런스와 const 제거, 값 복제		
+
+		// auto*
+		int i{ 123 };
+		auto p{ &i };
+
+		auto* p2{ &i };
+
+		// 복제 리스트 초기화와 직접 리스트 초기화
+		// 복제 리스트 초기화
+		auto a = { 11 };		// initializer_list<int>
+		auto b = { 11,22 };		// initializer_list<int>
+		for (int i : b)
+			cout << i << endl;
+		// 직접 리스트 초기화
+		auto c{ 11 };			// initializer_list<int>
+		//auto d{ 11,22 };		// initializer_list<int>	//error
+
+
+		// decltype 키워드
+		int x{ 123 };
+		decltype(x) y{ 456 };
+
+		decltype(foo()) f3{ foo() };
+	}
+#pragma endregion
 	return 0;
 }
