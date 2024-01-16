@@ -10,7 +10,7 @@ namespace Records {
 		Employee(const std::string & firstName,
 			const std::string& lastName);
 		
-		void promte(int raiseAmount = DefaultRaiseAndDemeritAmount);
+		void promote(int raiseAmount = DefaultRaiseAndDemeritAmount);
 		void demote(int demeritAmount = DefaultRaiseAndDemeritAmount);
 		void hire();	// 직원을 채용하거나 재고용한다.
 		void fire();	// 직원을 해고한다.

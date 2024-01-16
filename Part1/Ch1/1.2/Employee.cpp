@@ -9,7 +9,7 @@ namespace Records {
 	{
 	}
 	
-	void Employee::promte(int raiseAmount)
+	void Employee::promote(int raiseAmount)
 	{
 		setSalary(getSalary() + raiseAmount);		
 	}
